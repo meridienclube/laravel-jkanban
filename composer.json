@@ -1,5 +1,6 @@
 {
     "name": "confrariaweb/laravel-jkanban",
+    "version": "dev-master",
     "description": "Componente de kanban para laravel",
     "keywords": [
         "kanban",
