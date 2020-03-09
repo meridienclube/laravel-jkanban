@@ -38,29 +38,30 @@
                 console.log("O servidor não conseguiu processar o pedido");
             },
             success: function (data) {
+                console.log(data)
                 $('#{{ $id }}-loading').hide();
                 mountkanban("#{{ $id }}", data.data)
             }
         });
 
         function mountkanban(elementId, boards) {
-            console.log(elementId);
+            //console.log(elementId);
             var kanban = new jKanban({
-                element: elementId,                                  // selector of the kanban container
-                gutter: '15px',                                       // gutter of the board
+                element: elementId,                                         // selector of the kanban container
+                gutter: '15px',                                             // gutter of the board
                 //widthBoard: '250px',                                      // width of the board
-                responsivePercentage: false,                                    // if it is true I use percentage in the width of the boards and it is not necessary gutter and widthBoard
-                dragItems: true,                                         // if false, all items are not draggable
-                boards: boards,                                           // json of boards
-                dragBoards: true,                                         // the boards are draggable, if false only item can be dragged
-                addItemButton: false,                                        // add a button to board for easy item creation
-                buttonContent: '+',                                          // text or html content of the board button
+                responsivePercentage: false,                                // if it is true I use percentage in the width of the boards and it is not necessary gutter and widthBoard
+                dragItems: true,                                            // if false, all items are not draggable
+                boards: boards,                                             // json of boards
+                dragBoards: true,                                           // the boards are draggable, if false only item can be dragged
+                addItemButton: false,                                       // add a button to board for easy item creation
+                buttonContent: '+',                                         // text or html content of the board button
                 itemHandleOptions: {
-                    enabled: false,                                 // if board item handle is enabled or not
-                    handleClass: "item_handle",                         // css class for your custom item handle
-                    customCssHandler: "drag_handler",                        // when customHandler is undefined, jKanban will use this property to set main handler class
-                    customCssIconHandler: "drag_handler_icon",                   // when customHandler is undefined, jKanban will use this property to set main icon handler class. If you want, you can use font icon libraries here
-                    customHandler: "<span class='item_handle'>+</span> %s"// your entirely customized handler. Use %s to position item title
+                    enabled: false,                                         // if board item handle is enabled or not
+                    handleClass: "item_handle",                             // css class for your custom item handle
+                    customCssHandler: "drag_handler",                       // when customHandler is undefined, jKanban will use this property to set main handler class
+                    customCssIconHandler: "drag_handler_icon",              // when customHandler is undefined, jKanban will use this property to set main icon handler class. If you want, you can use font icon libraries here
+                    customHandler: "<span class='item_handle'>+</span> %s"  // your entirely customized handler. Use %s to position item title
                 },
                 click: function (el) {
                     {!! $click?? '' !!}
